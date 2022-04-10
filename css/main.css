@@ -1,0 +1,123 @@
+/* ================COMMON================ */
+.body {
+  /* 브라우저의 기본 스타일 설정 */
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #333;
+}
+img {
+  /* img태그들을 block요소로 변경 */
+  display: block;
+}
+a {
+  text-decoration: none;
+}
+
+/* ================HEADER================ */
+header {
+  background-color: #f6f5f0;
+  border-bottom: 1px solid #c8c8c8;
+}
+
+header .inner {
+  /*  */
+  width: 1100px;
+  height: 120px;
+  margin: 0 auto;
+  position: relative;
+}
+
+header .logo {
+  height: 75px;
+  /* 배치 영역 */
+  position: absolute;
+  /* 배치 위치 */
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+header .sub-menu {
+  /* sub-menu와 검색영역(input)을 함께 정렬하기 위해 flex사용 */
+  display: flex;
+  position: absolute;
+  top: 10px;
+  right: 0;
+}
+header .sub-menu ul.menu {
+  display: flex;
+  /* 메뉴바의 글꼴을 다르게 변경 */
+  font-family: Arial, Helvetica, sans-serif;
+}
+header .sub-menu ul.menu li {
+  position: relative;
+}
+/* 가상요소 bdfore로 메뉴 구분선 만들어주기 */
+header .sub-menu ul.menu li::before {
+  content: "";
+  width: 1px;
+  height: 12px;
+  background-color: #e5e5e5;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+/* 메뉴 앞에 나오는 첫 구분선만 지우기 */
+header .sub-menu ul.menu li:first-child::before {
+  display: none;
+}
+header .sub-menu ul.menu li a {
+  background-color: white;
+  font-size: 12px;
+  /* UX를 위해 a태그를 block으로 바꾸고 padding값 줘서 선택영역 늘려주기 */
+  padding: 11px 16px;
+  display: block;
+  color: #656565;
+
+}
+header .sub-menu ul.menu li a:hover {
+  color: #000;
+}
+
+header .sub-menu .search {
+  height: 34px;
+  position: relative;
+}
+
+header .sub-menu .search input {
+  width: 36px;
+  height: 34px;
+  padding: 4px 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+  outline: none;
+  font-size: 12px;
+  transition: width .4s;
+}
+/* input이 focus되면 */
+header .sub-menu .search input:focus {
+  width: 190px;
+  border-color: #669900;
+}
+header .sub-menu .search .material-icons {
+  /* 정렬을 위해 요소의 넓이를 추가(구글 icons의 기본 크기는 24px) */
+  height: 24px;
+  position: absolute;
+  /* 수직 가운데 정렬 */
+  top: 0;
+  bottom: 0;
+  right: 5px;
+  margin: auto;
+  transition: 0.4s;
+}
+
+/* .search의 input 활성화로 .focused가 추가될 때(일치선택자) */
+header .sub-menu .search.focused .material-icons {
+  opacity: 0;
+}
+
