@@ -1,4 +1,4 @@
-/* ================COMMON================ */
+/* ============================COMMON=========================== */
 .body {
   /* 브라우저의 기본 스타일 설정 */
   font-family: 'Nanum Gothic', sans-serif;
@@ -14,19 +14,21 @@ img {
 a {
   text-decoration: none;
 }
+.inner {
+  width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
 
-/* ================HEADER================ */
+/* ==========================HEADER=========================== */
 header {
   background-color: #f6f5f0;
   border-bottom: 1px solid #c8c8c8;
 }
 
-header .inner {
-  /*  */
-  width: 1100px;
+/* header태그의 바로 아래 자식이고 .inner인 1개 녀석만 */
+header > .inner {
   height: 120px;
-  margin: 0 auto;
-  position: relative;
 }
 
 header .logo {
@@ -119,5 +121,110 @@ header .sub-menu .search .material-icons {
 /* .search의 input 활성화로 .focused가 추가될 때(일치선택자) */
 header .sub-menu .search.focused .material-icons {
   opacity: 0;
+}
+
+/* ----------------------header .main-menu부분------------------------------- */
+header .main-menu {
+  /* menu items정렬 */
+  display: flex;
+
+  /* menu 위치 설정 */
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  /* 메뉴영역은 앞쪽 레이어로 순서 지정*/
+  z-index: 1;
+}
+
+header .main-menu .item {
+  
+}
+
+header .main-menu .item .item__name {
+  padding: 10px 20px 34px 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+}
+
+/* hover될 때 바뀌는 시각적 효과를 .item__name과 .item__contents에 함께 적용해야함 
+-> 부모 class인 .item에 가상클래스 적용해 .item__name쪽 설정 변경  */
+header .main-menu .item:hover .item__name {
+  background-color: #2c2a29;
+  color: #669900;
+  border-radius: 6px 6px 0 0;
+}
+
+header .main-menu .item .item__contents {
+  
+}
+
+
+header .main-menu .item .item__contents {
+  width: 100%;
+  /* 뷰포트 기준으로 header의 contents영역이 계속 표시되게끔 설정 */
+  position: fixed;
+  left: 0;
+  /* header의 contents영역은 item이 hover될때만 보여져야 함 */
+  display: none;
+}
+
+/* hover될 때 바뀌는 시각적 효과를 .item__name과 .item__contents에 함께 적용해야함 
+-> 부모 class인 .item에 가상클래스 적용해 .item__contents쪽 설정 변경 */
+header .main-menu .item:hover .item__contents {
+  display: block;
+}
+
+/* ----------------------header .main-menu안 contents의 menu부분------------------------------- */
+
+header .main-menu .item .item__contents .contents__menu {
+  background-color: #2c2a29;
+}
+
+/* contents안 바로 아래자식이고 ul인 1개 녀석만 */
+/* ul이 많은 html구조에서는 '>'(자식선택자)를 활용해 선택하는 것이 좋음 */
+header .main-menu .item .item__contents .contents__menu > ul {
+  /* ul의 items 정렬 */
+  display: flex;
+  padding: 20px 0;
+}
+
+/* contents안 바로 아래자식이고 ul인 1개 녀석의 바로 아래자식 li 1개 녀석만 */
+header .main-menu .item .item__contents .contents__menu > ul > li {
+  width: 220px;
+}
+header .main-menu .item .item__contents .contents__menu > ul > li h4 {
+  padding: 3px 0 12px 0;
+  font-size: 14px;
+  color: #fff;
+}
+
+header .main-menu .item .item__contents .contents__menu > ul > li ul li{
+  padding: 5px 0;
+  font-size: 12px;
+  color: #999;
+  /* 마우스 커서가 올라가면 pointer모양으로 바꿔주기 */
+  cursor: pointer;
+}
+header .main-menu .item .item__contents .contents__menu > ul > li ul li:hover{
+  color: #669900;
+}
+
+header .main-menu .item .item__contents .contents__texture {
+  font-size: 12px;
+  padding: 26px 0;
+  background: url("../images/main_menu_pattern.jpg");
+}
+
+header .main-menu .item .item__contents .contents__texture h4{
+  color: #999;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+header .main-menu .item .item__contents .contents__texture p {
+  color: #669900;
+  /* 위4 오,왼0 아래14 */
+  margin: 4px 0 14px;
+
 }
 
