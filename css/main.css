@@ -6,7 +6,6 @@ body {
   font-weight: 400;
   line-height: 1.4;
   color: #333;
-  height: 3000px;
 }
 img {
   /* img태그들을 block요소로 변경 */
@@ -21,6 +20,58 @@ a {
   position: relative;
 }
 
+.btn {
+  width: 130px;
+  padding: 10px;
+  border: 2px solid #333;
+  border-radius: 4px;
+  color: #333;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  display: block;
+  transition: .4s;
+}
+.btn:hover {
+  background-color: #333;
+  color: #fff;
+}
+/* 상태를 나타내는 -- */
+.btn.btn--reverse {
+  background-color: #333;
+  color: #fff;
+}
+.btn.btn--reverse:hover {
+  background-color: transparent;
+  color: #333;
+}
+.btn.btn--brown {
+  color: #592B18;
+  border-color: #592B18;
+}
+.btn.btn--brown:hover {
+  color: #FFF;
+  background-color: #592B18;
+}
+.btn.btn--gold {
+  color: #D9AA8A;
+  border-color: #D9AA8A;
+}
+.btn.btn--gold:hover {
+  color: #FFF;
+  background-color: #D9AA8A;
+}
+.btn.btn--white {
+  color: #FFF;
+  border-color: #FFF;
+}
+.btn.btn--white:hover {
+  color: #333;
+  background-color: #FFF;
+}
+
+
 /* ==========================HEADER=========================== */
 header {
   background-color: #f6f5f0;
@@ -30,7 +81,10 @@ header {
   /* position: relative는 block요소처럼, position: absolute, fixed는 인라인적 성향을 가짐
   헤더를 뷰포트에 고정해야 하므로 fixed 사용, 블록처럼 최대로 늘어나게 채우기 위해 크기 100% */
   position: fixed;
+  top:0;
   width: 100%;
+  /* 앞에 나와야하므로 높은 값줘서 명시 */
+  z-index: 9;
 }
 
 /* header태그의 바로 아래 자식이고 .inner인 1개 녀석만 */
@@ -162,7 +216,6 @@ header .main-menu .item:hover .item__name {
 }
 /* 
 header .main-menu .item .item__contents {
-  
 } */
 
 
@@ -251,3 +304,262 @@ header .badges .badge{
 }
 
 
+/* ============================ VISUAL ============================ */
+
+.visual {
+  margin-top: 120px;
+  background: url("../images/visual_bg.jpg") center;
+}
+.visual .inner {
+  height: 646px;
+}
+/* .visual .inner .title 입력하는 차례에서
+inner가 .title에서 특정한 뭔가를 할 필요가 없으면 생략해도 좋음 */
+.visual .title {
+  position: absolute;
+  top: 88px;
+  left: -10px;
+}
+.visual .title .btn{
+  position: absolute;
+  top: 259px;
+  left: 173px;
+}
+
+.visual .cup1.image {
+  position: absolute;
+  bottom: 0;
+  right: -47px;
+}
+.visual .cup1.text {
+  position: absolute;
+  top: 38px;
+  right: 171px;
+}
+.visual .cup2.image {
+  position: absolute;
+  bottom: 0;
+  right: 162px;
+}
+.visual .cup2.text {
+  position: absolute;
+  top: 321px;
+  right: 416px;
+}
+.visual .spoon {
+  position: absolute;
+  bottom: 0;
+  left: 275px;
+}
+
+.visual .fade-in {
+  opacity: 0;
+}
+
+
+/* ============================ NOTICE ============================ */
+
+.notice .notice-line {
+  position: relative;
+}
+/* position: relative는 block요소처럼, position: absolute, fixed는 인라인적 성향을 가짐
+인라인이라면 블록처럼 최대로 늘어나도록 크기 100%로 채워줘야 함 */
+.notice .notice-line .bg-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #333;
+}
+.notice .notice-line .bg-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #f6f5ef;
+}
+.notice .notice-line .inner {
+  height: 62px;
+  /* 자식들인 .inner__left와 .inner_right를 묶어주기 */
+  display: flex;
+  z-index: 1;
+}
+.notice .notice-line .inner__left {
+  width: 60%;
+  height: 100%;
+  background-color: #333;
+  /* 아래 자식 녀석들을 한묶음으로 만들어주자 */
+  display: flex;
+  align-items: center;
+}
+.notice .notice-line .inner__left h2 {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  margin-right: 20px;
+}
+.notice .notice-line .inner__left .swiper-container {
+  height: 62px;
+  flex-grow: 1;
+}
+.notice .notice-line .inner__left .swiper-slide {
+  height: 62px;
+  display: flex;
+  align-items: center;
+}
+.notice .notice-line .inner__left .swiper-slide a {
+  color: #fff;
+}
+.notice .notice-line .inner__left .notice-line__more {
+  width: 62px;
+  height: 62px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.notice .notice-line .inner__left .notice-line__more .material-icons {
+  /* + 아이콘 색상과 크기 조절 */
+  color: #fff;
+  font-size: 30px;
+}
+.notice .notice-line .inner__right {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  /* 메인축 수평의 끝점(오른쪽 끝)으로 이동후 가운데 수직정렬  */
+  justify-content: flex-end;
+  align-items: center;
+}
+.notice .notice-line .inner__right h2 {
+  font-size: 17px;
+  font-weight: 700;
+}
+.notice .notice-line .inner__right .toggle-promotion {
+  width: 62px;
+  height: 62px;
+  /* 요녀석은 a태그가 아니기때문에 UX를 위해 마우스 커서모양을 바꿔줘 버튼처럼 보이게 한다  */
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.notice .notice-line .inner__right .toggle-promotion .material-icons {
+  /* + 아이콘 크기 조절 */
+  font-size: 30px;
+}
+
+
+/* ============================PROMOTION============================ */
+
+.notice .promotion {
+  /*width: auto;*/
+  height: 693px;
+  background-color: #f6f5ef;
+  position: relative;
+  overflow: hidden;
+  transition: height .4s;
+}
+.notice .promotion.hide {
+  height: 0;
+}
+/* (819px 슬라이드 * 3) + 사이 여백 10px씩 = 2477px */
+.notice .promotion .swiper-container {
+  /* CSS의 calc()를 사용하자! 
+  괄호 안 수식을 자동으로 계산해 결과값을 속성값으로 적용해주는 효자함수!! */
+  width: calc(819px * 3 + 20px);
+  height: 553px;
+  position: absolute;
+  top: 40px;
+  /* 가운데 정렬을 노리고 왼쪽 50%를 먼저 추가해서 배치시켜주기 
+  left값에서 이동한 것은 기준점(왼쪽 모서리)을 기준으로 50% 간 것 
+  따라서 실제 시각적인 가운데 정렬이 아님 */
+  left: 50%;
+  /* 때문에 위에서 추가한 가로넓이(width)를 다시 빼줘야 
+  요소가 오른쪽->왼쪽으로 되면서 시각적인 정렬이 된다.
+  => (왼쪽->오른쪽)으로 50% 옮겨져있는 요소의 위치로부터 
+  요소의 절반(넓이의 절반)을 다시 (오른쪽->왼쪽)으로 가게끔 이동시켜야함 
+  
+  참고: '방향50% - margin-방향'으로 정렬시키는 우 width, height값이 고정인 상태에서만 사용가능 */
+  margin-left: calc((819px * 3 + 20px) / -2);
+}
+.notice .promotion .swiper-slide {
+  position: relative;
+  opacity: .5;
+  /* opacity만 자연스럽게, 1초 */
+  transition: opacity 1s;
+}
+/* swiper에서 현재 보여주는 활성화된 화면 */
+.notice .promotion .swiper-slide-active {
+  opacity: 1;
+}
+.notice .promotion .swiper-slide .btn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  /* 이미 css위쪽 버튼 설정에서 width:130px값 넣었으므로 상속처리됨  */
+}
+.notice .promotion .swiper-pagination {
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  z-index: 0;
+}
+/* swiper가 지정해둔 선택자 html에서 찾아와서 원하는 설정으로 바꾸기 */
+.notice .promotion .swiper-pagination .swiper-pagination-bullet {
+  /* 배경에 투명값 적용하기 */
+  background: url("../images/promotion_slide_pager.png") transparent;
+  width: 13px;
+  height: 12px;
+  /* 동그라미 버튼끼리 여백주기 */
+  margin-right: 6px;
+  outline: none;
+}
+/* .swiper-pagination 안에 있는 .wiper-pagination-bullet들 중
+가장 마지막에 있는 녀석을 가상요소로 선택해서 오른쪽 줬던 여백 다시 없애주기  */
+.notice .promotion .swiper-pagination .swiper-pagination-bullet:last-child {
+  margin-right: 0;
+}
+/* .swiper-pagination 중에 .swiper-pagination-bullet-active를 가진 녀석이면 */
+.notice .promotion .swiper-pagination .swiper-pagination-bullet-active {
+  background-image: url("../images/promotion_slide_pager_on.png");
+}
+/* 다중선택자를 이용해서
+슬라이드 좌/우 버튼에 설정 동시적용 */
+.notice .promotion .swiper-prev,
+.notice .promotion .swiper-next {
+  width: 42px;
+  height: 42px;
+  outline: none;
+  border: 2px solid #333;
+  /* 버튼 동그랗게 만들기 */
+  border-radius: 50%;
+  position: absolute;
+  /* Swiper Container 높이의 절반만큼 끌어올림 */
+  /* 버튼 높이의 절반만큼 추가로 끌어올림 */
+  top: 300px;
+  z-index: 1;
+  cursor: pointer;
+  /* 화살표 아이콘 중앙으로 정렬 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .4s;
+}
+.notice .promotion .swiper-prev {
+  left: 50%;
+  margin-left: -480px;
+}
+.notice .promotion .swiper-next {
+  right: 50%;
+  margin-right: -480px;
+}
+/* 화살표 버튼에 hover되면 */
+.notice .promotion .swiper-prev:hover,
+.notice .promotion .swiper-next:hover {
+  background-color: #333;
+  color: #fff;
+}

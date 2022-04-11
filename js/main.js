@@ -1,3 +1,6 @@
+// =======================================헤더쪽===============================================
+// ============================================================================================
+
 // querySelector == CSS selector로 찾기
 
 // .search영역 찾아서 변수에 할당
@@ -31,13 +34,10 @@ searchInputEl.addEventListener('blur', ()=>{
 // header태그 안 .example클래스 가진 녀석 1개 찾기
 const badgeEl = document.querySelector('header .badges')
 
-
-
-
 // 페이지에서 scroll이벤트가 발생하면 함수 실행!
 // 이벤트 발생시 0.3초당 1회만 호출되도록 제한걸기! loDash.js의 _.throttle(함수, 시간)사용
 document.addEventListener('scroll', _.throttle(()=>{
-  console.log('scroll!', window.scrollY);
+
   //scrollY좌표가 500보다 크면
   if(window.scrollY > 500){
 
@@ -58,23 +58,16 @@ document.addEventListener('scroll', _.throttle(()=>{
 }, 300));
 
 
-
-
-
-
-
-
-
-
 /*  ***** 참고 ******
 
 ====================== gsap과 transition 관련 ================================
-opacity:0으로 만들면...?
+opacity:0으로만 만들면...?
 - 시각적으로만 숨겨주고 요소는 그대로 (투명화로)있어 실제 그 영역 마우스 오버되면 버튼도 눌러짐
 - 때문에 display:none으로 실제 요소도 없애줘야함.
 
 - CSS transition / gsap처럼 자연스러운 효과 주는애들은 숫자값만주면 알아서 중간값 계산해줌
 - display:none같이 숫자값이 아닌 애들은 on/off만 있어서.. 기능적인것은 자연스럽게 사라질수가 없음
+- 따라서 display:none + 시각적 투명효과속성 같이쓰자
 
 =====================loDash없이 사용되는 scroll 코드==========================
 document.addEventListener('scroll', ()=>{
@@ -94,4 +87,71 @@ scroll 이벤트가 빠른 속도로 실행될 수 있기 때문에,
 requestAnimationFrame(), setTimeout(), 혹은, CustomEvent
 =======================================================================
 */
+
+// =======================================비주얼쪽===============================================
+// ============================================================================================
+
+// .visual 안 .fade-in인 애들 모두 찾아서 fadeEls에 할당
+const fadeEls = document.querySelectorAll('.visual .fade-in')
+
+// fadeEls에 담긴 요소들을 한 개씩 꺼내서 반복처리
+fadeEls.forEach(function (fadeEl, index) {
+  //각 요소 순서대로 시간차 줘서 보여지게 하기
+  //gsap의 메소드 to(요소, 지속시간, 옵션)
+  gsap.to(fadeEl, 1, {
+    delay: (index + 1) * .7, // 1) 0초후, 2) 1.4초후, 3) 2.1초후, 4) 2.7초후 
+    opacity: 1
+  })
+})
+
+// Swiper 인스턴스 사용하기 
+//(선택자, 옵션)
+new Swiper('.notice-line .swiper-container', {
+  // 방향 설정
+  direction: 'vertical',
+  // 자동재생 여부
+  autoplay: true,
+  // 반복 여부
+  loop: true,
+});
+
+new Swiper('.promotion .swiper-container', {
+  // 방향 설정은 기본값이 horizontal이므로 명시할 필요 없음
+  
+  // 한번에 보여줘야 하는 슬라이드 개수
+  slidesPerView: 3, 
+  // 슬라이드 사이의 여백 
+  spaceBetween: 10,
+  // 1번 슬라이드가 가운데에서 보여주도록 하기 
+  centeredSlides: true,
+  // 반복 여부
+  loop: true,
+  
+  // 자동재생에 delay를 설정할수도 있음!
+  autoplay: {
+    // 5초
+    delay: 5000,
+  },
+
+  // 슬라이드중인 요소들의 개수를 나타내주는 UI 사용
+  pagination: {
+    //페이지 번호 요소 선택자
+    el: '.promotion .swiper-pagination',
+    // 사용자가 페이지 번호 요소를 클릭해서 움직이게 할지의 여부 
+    clickable: true,
+  },
+
+  // 슬라이드 이전/다음 버튼 UI 사용
+  navigation: { 
+    // 이전 버튼 선택자
+    prevEl: '.promotion .swiper-prev',
+    // 다음 버튼 선택자
+    nextEl: '.promotion .swiper-next'
+  }
+
+  
+
+
+});
+
 
