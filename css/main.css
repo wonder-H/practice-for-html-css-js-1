@@ -1,11 +1,12 @@
 /* ============================COMMON=========================== */
-.body {
+body {
   /* 브라우저의 기본 스타일 설정 */
   font-family: 'Nanum Gothic', sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.4;
   color: #333;
+  height: 3000px;
 }
 img {
   /* img태그들을 block요소로 변경 */
@@ -24,6 +25,12 @@ a {
 header {
   background-color: #f6f5f0;
   border-bottom: 1px solid #c8c8c8;
+
+  /* header .badges를 위한 position 설정 */
+  /* position: relative는 block요소처럼, position: absolute, fixed는 인라인적 성향을 가짐
+  헤더를 뷰포트에 고정해야 하므로 fixed 사용, 블록처럼 최대로 늘어나게 채우기 위해 크기 100% */
+  position: fixed;
+  width: 100%;
 }
 
 /* header태그의 바로 아래 자식이고 .inner인 1개 녀석만 */
@@ -99,7 +106,7 @@ header .sub-menu .search input {
   border-radius: 5px;
   outline: none;
   font-size: 12px;
-  transition: width .4s;
+  transition: width .4s
 }
 /* input이 focus되면 */
 header .sub-menu .search input:focus {
@@ -136,9 +143,9 @@ header .main-menu {
   z-index: 1;
 }
 
-header .main-menu .item {
+/* header .main-menu .item {
   
-}
+} */
 
 header .main-menu .item .item__name {
   padding: 10px 20px 34px 20px;
@@ -153,10 +160,10 @@ header .main-menu .item:hover .item__name {
   color: #669900;
   border-radius: 6px 6px 0 0;
 }
-
+/* 
 header .main-menu .item .item__contents {
   
-}
+} */
 
 
 header .main-menu .item .item__contents {
@@ -227,4 +234,20 @@ header .main-menu .item .item__contents .contents__texture p {
   margin: 4px 0 14px;
 
 }
+
+header .badges {
+  position: absolute;
+  top: 132px;
+  right: 12px;
+}
+
+header .badges .badge{
+  border-radius: 10px;
+  /* 모서리를 넘어가는 부분은 숨겨주기 */
+  overflow: hidden;
+  margin-bottom: 12px;
+  box-shadow: 4px 4px 10px rgba(0,0,0,.15);
+  cursor: pointer;
+}
+
 

@@ -33,7 +33,13 @@
   <!-- 고해상도의 png이미지를 적용하고 싶다면 link로 연결 -->
   <link rel="icon" href="./favicon.png">
 
-  <!-- defer == html, css후에 js읽도록 처리 -->
+  <!-- lodash cdn 사용 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+
+  <!-- gsap cdn 사용 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.2/gsap.min.js"></script>
+
+  <!-- defer == html, css후에 main.js읽도록 처리 -->
   <script defer src="./js/main.js"></script>
 </head>
 
@@ -364,7 +370,14 @@
           </div>
         </li>
       </ul>
-
+    </div>
+    <div class="badges">
+      <div class="badge">
+        <img src="./images/badge1.jpg" alt="Badge">
+      </div>
+      <div class="badge">
+        <img src="./images/badge2.jpg" alt="Badge">
+      </div>
     </div>
   </header>
 
