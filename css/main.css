@@ -808,13 +808,14 @@ inner가 .title에서 특정한 뭔가를 할 필요가 없으면 생략해도 �
 
 .pick-your-favorite {
   /* no-repeat + fixed를 이용해 패럴렉스 효과 적용 */
-  background: url("../images/favorite_bg.jpg") 
-              no-repeat center fixed;
+  background: url("../images/favorite_bg.jpg") no-repeat center fixed;
   background-size: cover;
 }
+
 .pick-your-favorite .inner {
   padding: 110px 0;
 }
+
 .pick-your-favorite .text-group {
   width: 362px;
   margin-left: 100px;
@@ -822,9 +823,78 @@ inner가 .title에서 특정한 뭔가를 할 필요가 없으면 생략해도 �
   justify-content: flex-end;
   flex-wrap: wrap;
 }
+
 .pick-your-favorite .text-group .title {
   margin-bottom: 40px;
 }
+
 .pick-your-favorite .text-group .description {
   margin-bottom: 40px;
+}
+
+
+/* ============================RESERVE STORE============================ */
+/* 앞/뒤 겹치게 만들어 3D효과 적용하기 */
+
+.reserve-store {
+  background: url("../images/reserve_store_bg.jpg") 
+              no-repeat center fixed;
+  background-size: cover;
+}
+
+.reserve-store .inner {
+  height: 600px;
+  /* 아이템들 겹쳐지도록 중간정렬 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reserve-store .medal {
+  /* 부모의 크기조절로 마우스 hover의 영역 지정/적용 */
+  width: 334px;
+  height: 334px;
+  /* 부모에게 원근법 적용 */
+  perspective: 600px;
+}
+
+.reserve-store .medal .front,
+.reserve-store .medal .back {
+  width: inherit;
+  height: inherit;
+  /* 겹치게 만들기 위해 둘다 absolute적용 */
+  position: absolute;
+  transition: 1s;
+  /* 뒤집으면 안보이게! 
+  => 앞, 뒤 모두 서로 안보일 때 각 효과 적용됨 */
+  backface-visibility: hidden;
+}
+
+.reserve-store .medal .front {
+  /* 명시적으로 0도부터 출발한다는 것을 지정 */
+  transform: rotateY(0deg);
+}
+
+/* .medal이 마우스 hover되면 .front(앞쪽) 3D효과 적용해서 뒤집기 */
+.reserve-store .medal:hover .front {
+  transform: rotateY(180deg);
+}
+
+.reserve-store .medal .back {
+  /* -로 만들어서 반전 이미지로 만들어주기 */
+  transform: rotateY(-180deg);
+}
+
+/* .medal이 마우스 hover되면 .back(뒷쪽) 3D효과 적용해서 뒤집기 */
+.reserve-store .medal:hover .back {
+  /* Y를 0으로 */
+  transform: rotateY(0deg);
+}
+
+.reserve-store .medal .back .btn {
+  position: absolute;
+  top: 240px;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
