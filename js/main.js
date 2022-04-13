@@ -149,9 +149,37 @@ new Swiper('.promotion .swiper-container', {
     nextEl: '.promotion .swiper-next'
   }
 
-  
-
-
 });
 
 
+// =======================================프로모션쪽===============================================
+// ============================================================================================
+
+// 변수 promotionEl에 .promotion를 가진 노드 1개 찾아서 할당 
+const promotionEl = document.querySelector('.promotion')
+// 변수 promotionToggleBtn에 .toggle-promotion 가진 노드 1개 찾아서 할당 
+const promotionToggleBtn = document.querySelector('.toggle-promotion')
+
+// 변수 isHidePromotion에 프로모션의 on/off를 확인하도록 boolean 값 할당
+// true == yes, false == no  
+let isHidePromotion = false;
+
+//promotionToggleBtn 변수(.toggle-promotion 가진 노드 영역)에 이벤트 핸들러 만들기 
+promotionToggleBtn.addEventListener('click', ()=>{
+  console.log('click');
+  //클릭 이벤트시 isHidePromotion값 바꿔주기
+  isHidePromotion = !isHidePromotion;
+
+  //isHidePromotion == true
+  if(isHidePromotion){
+      
+  //promotionEl(.promotion를 가진 노드)에 .hide 추가해서 숨겨지게 만들기
+    promotionEl.classList.add('hide');
+
+  }else { // isHidePromotion == false
+
+  //promotionEl(.promotion를 가진 노드)에 .hide 제거해서 보여지게 만들기
+    promotionEl.classList.remove('hide');
+
+  }
+});
