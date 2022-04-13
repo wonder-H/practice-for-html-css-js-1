@@ -707,13 +707,14 @@ inner가 .title에서 특정한 뭔가를 할 필요가 없으면 생략해도 �
 
 .youtube .youtube__cover {
   background: url("../images/video_cover_pattern.png");
-  background-color: rgba(0,0,0,.3);
+  background-color: rgba(0, 0, 0, .3);
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 }
+
 #player {
   width: 100%;
   height: 100%;
@@ -721,21 +722,109 @@ inner가 .title에서 특정한 뭔가를 할 필요가 없으면 생략해도 �
   top: 0;
   left: 0;
 }
-.youtube .inner{
+
+.youtube .inner {
   height: 700px;
 }
-.youtube .floating1{
+
+.youtube .floating1 {
   position: absolute;
   top: 50px;
   left: 0;
 }
-.youtube .floating2{
+
+.youtube .floating2 {
   position: absolute;
   top: 350px;
   left: 150px;
 }
-.youtube .floating3{
+
+.youtube .floating3 {
   position: absolute;
-  bottom: -200px;
+  top: -200px;
   right: 0;
+}
+
+/* ============================SEASON PRODUCT=========================== */
+
+.season-product {
+  background-image: url("../images/season_product_bg.jpg");
+}
+
+.season-product .inner {
+  height: 400px;
+}
+
+.season-product .floating3 {
+  position: absolute;
+  top: -200px;
+  right: 0;
+}
+
+.season-product .text-group {
+  position: absolute;
+  top: 110px;
+  right: 100px;
+}
+
+.season-product .text-group .title {
+  margin-bottom: 10px;
+}
+
+.season-product .text-group .description {
+  margin-bottom: 15px;
+}
+
+
+/* ============================RESERVE COFFEE=========================== */
+
+.reserve-coffee {
+  background-image: url("../images/reserve_bg.jpg");
+}
+
+.reserve-coffee .inner {
+  height: 400px;
+}
+
+.reserve-coffee .reserve-logo {
+  position: absolute;
+  top: 110px;
+  left: 0;
+}
+
+.reserve-coffee .text-group {
+  position: absolute;
+  top: 124px;
+  left: 208px;
+}
+
+.reserve-coffee .product {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* ============================PICK YOUR FAVORITE============================ */
+
+.pick-your-favorite {
+  /* no-repeat + fixed를 이용해 패럴렉스 효과 적용 */
+  background: url("../images/favorite_bg.jpg") 
+              no-repeat center fixed;
+  background-size: cover;
+}
+.pick-your-favorite .inner {
+  padding: 110px 0;
+}
+.pick-your-favorite .text-group {
+  width: 362px;
+  margin-left: 100px;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+.pick-your-favorite .text-group .title {
+  margin-bottom: 40px;
+}
+.pick-your-favorite .text-group .description {
+  margin-bottom: 40px;
 }
