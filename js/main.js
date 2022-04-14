@@ -188,7 +188,7 @@ promotionToggleBtn.addEventListener('click', ()=>{
 
 
 // =======================================유튜브 + floating효과===============================================
-// ============================================================================================
+// ===========================================================================================================
 
 function floatingObject(selector, delay, size){
   // gsap.to(요소, 시간, 옵션)
@@ -203,11 +203,30 @@ function floatingObject(selector, delay, size){
 }
 floatingObject('.floating1', 1, 15);
 floatingObject('.floating2', .5, 15);
-floatingObject('.floating3', 1.5, 20)
+floatingObject('.floating3', 1.5, 20);
 
 // 범위 랜덤 함수(소수점 2자리까지)
 function random(min, max) {
   // `.toFixed()`를 통해 반환된 문자 데이터를,
   // `parseFloat()`을 통해 소수점을 가지는 숫자 데이터로 변환
   return parseFloat((Math.random() * (max - min) + min).toFixed(2))
-}
+};
+
+// ====================ScrollMagic = 스크롤과 요소 감시해 적용해주는 라이브러리===============================
+// ===========================================================================================================
+
+// spyEls에 section태그 중 .scroll-spy인 노드녀석들 모두 찾아서 할당하기
+const spyEls = document.querySelectorAll('section.scroll-spy')
+
+spyEls.forEach((spyEl)=>{
+  
+  //ScrollMagic 인스턴스 생성, Scene == 감시할 장면(Scene)을 추가. 이후 메소드 체이닝으로 제어
+    new ScrollMagic.Scene({
+      triggerElement : spyEl, //spyEl요소가 보여지는지 감시 
+      triggerHook: .8, //위의 트리거 작동 시 Hook으로 뷰포트에 위치를 설정. 0~1사이 숫자  
+    })
+    .setClassToggle(spyEl, 'show') //setClassToggle == 요소가 화면에 보이면 .show 추가
+    .addTo(new ScrollMagic.Controller());//addTo == 컨트롤러에 장면을 할당
+  
+  
+})
