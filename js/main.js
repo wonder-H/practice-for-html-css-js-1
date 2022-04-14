@@ -241,9 +241,19 @@ new Swiper('.awards .swiper-container', {
   loop: true,
   spaceBetween: 30, //사이 여백 30px
   slidesPerView: 5,
-  
+
   navigation: {
     prevEl: '.awards .swiper-prev',
     nextEl: '.awards .swiper-next'
-  }
+  },
 });
+
+
+// =======================================푸터영역===============================================
+// ==============================================================================================
+
+// .this-year를 가진 노드 영역을 변수 thisYear에 할당
+const thisYear = document.querySelector('.this-year');
+
+// textContent사용 + Date인스턴스 사용해 getFullYear메소드 이용해 올해의 숫자를 얻고, 노드 영역에 넣어주기 
+thisYear.textContent = new Date().getFullYear();
