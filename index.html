@@ -27,8 +27,10 @@
   <!-- 구글에서 제공하는 머터리얼 아이콘 가져오기 -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 
+  <!-- css Reset후 적용 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
   <link rel="stylesheet" href="./css/main.css">
+
   <!-- root폴더에 favicon.ico가 있으면 브라우저가 알아서 적용해줌 -->
   <!-- 고해상도의 png이미지를 적용하고 싶다면 link로 연결 -->
   <link rel="icon" href="./favicon.png">
@@ -36,7 +38,7 @@
   <!-- lodash cdn 사용 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
 
-  <!-- gsap cdn 사용 -->
+  <!-- gsap & ScrollToPlugin cdn 사용 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ==" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollToPlugin.min.js" integrity="sha512-nTHzMQK7lwWt8nL4KF6DhwLHluv6dVq/hNnj2PBN0xMl2KaMm1PM02csx57mmToPAodHmPsipoERRNn4pG7f+Q==" crossorigin="anonymous"></script>
   
@@ -686,6 +688,12 @@
     </div>
   </footer>
 
+  <!--TO TOP BUTTON-->
+  <!-- 이녀석은 id로 설정 -->
+  <div id="to-top">
+    <!-- 구글 위로가기 화살표 버튼 -->
+    <div class="material-icons">arrow_upward</div>
+  </div>
 
 </body>
 

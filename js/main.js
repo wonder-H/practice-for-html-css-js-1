@@ -36,6 +36,15 @@ searchInputEl.addEventListener('blur', ()=>{
 // header태그 안 .example클래스 가진 녀석 1개 찾기
 const badgeEl = document.querySelector('header .badges')
 
+// #to-top가진 태그 찾아서 toTopEl 변수에 할당
+const toTopEl = document.querySelector('#to-top');
+// 이 영역 클릭되면 스크롤 이동
+toTopEl.addEventListener('click', ()=>{
+  gsap.to(window, .7, {
+    scrollTo: 0,
+  })
+})
+
 // 페이지에서 scroll이벤트가 발생하면 함수 실행!
 // 이벤트 발생시 0.3초당 1회만 호출되도록 제한걸기! loDash.js의 _.throttle(함수, 시간)사용
 document.addEventListener('scroll', _.throttle(()=>{
@@ -49,6 +58,11 @@ document.addEventListener('scroll', _.throttle(()=>{
       opacity: 0,
       display: 'none',
     });
+    
+    // 맨아래 버튼(위로 올려주는 버튼)은 보여지게
+    gsap.to(toTopEl, .2, {
+      x: 0 //이동 0으로 초기화
+    });
 
   }else{
     //배지 보이기
@@ -56,8 +70,14 @@ document.addEventListener('scroll', _.throttle(()=>{
       opacity: 1,
       display: 'block',
     });
+
+    // 맨아래 버튼(위로 올려주는 버튼)은 숨겨지게
+    gsap.to(toTopEl, .2, {
+      x: 100 //오른쪽으로 100px만큼 이동
+    });
   }
 }, 300));
+
 
 
 /*  ***** 참고 ******
