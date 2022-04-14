@@ -230,3 +230,20 @@ spyEls.forEach((spyEl)=>{
   
   
 })
+
+
+// =======================================어워즈쪽===============================================
+// ===================================== swiper사용 =============================================
+
+// Swiper인스턴스 생성 후 .awards가 있는 태그 안 .swiper-container인 녀석들에게 적용
+new Swiper('.awards .swiper-container', {
+  autoplay: true,
+  loop: true,
+  spaceBetween: 30, //사이 여백 30px
+  slidesPerView: 5,
+  
+  navigation: {
+    prevEl: '.awards .swiper-prev',
+    nextEl: '.awards .swiper-next'
+  }
+});
